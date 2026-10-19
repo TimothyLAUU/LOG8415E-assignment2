@@ -1,0 +1,26 @@
+services:
+  worker1:
+    build: ./worker
+    container_name: worker1
+    environment:
+      - WORKER_NAME=worker1
+    ports:
+      - "${WORKER1_PORT:-5001}:5000"
+
+  worker2:
+    build: ./worker
+    container_name: worker2
+    environment:
+      - WORKER_NAME=worker2
+    ports:
+      - "${WORKER2_PORT:-5002}:5000"
+
+  orchestrator:
+    build: ./orchestrator
+    container_name: orchestrator
+    ports:
+      - "80:80"
+    environment:
+      WORKER1_IP: ${WORKER1_IP:-worker1}
+      WORKER2_IP: ${WORKER2_IP:-worker2}
+    restart: unless-stopped

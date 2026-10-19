@@ -33,9 +33,9 @@ wait_ready() {  # wait until SSH works and Docker is installed
 
 deploy_worker() {  # $1=public ip, $2=worker name
   wait_ready "$1"
-  scp -r $SSH_OPTS "$ROOT/worker" ubuntu@"$1":~/
+  scp -r $SSH_OPTS "$ROOT/worker" "$ROOT/docker-compose.yml" ubuntu@"$1":~/
   ssh $SSH_OPTS ubuntu@"$1" \
-    "cd ~/worker && printf 'WORKER_NAME=$2\nWORKER_MODE=$WORKER_MODE\n' > .env && docker compose up -d --build"
+    "cd ~ && printf 'WORKER1_PORT=5000\nWORKER2_PORT=5000\n' > .env && docker compose up -d --build $2"
 }
 
 # 4. Workers (in parallel: image build is slow)
@@ -45,9 +45,9 @@ wait
 
 # 5. Orchestrator
 wait_ready "$ORCH_PUB"
-scp -r $SSH_OPTS "$ROOT/orchestrator" ubuntu@"$ORCH_PUB":~/
+scp -r $SSH_OPTS "$ROOT/orchestrator" "$ROOT/docker-compose.yml" ubuntu@"$ORCH_PUB":~/
 ssh $SSH_OPTS ubuntu@"$ORCH_PUB" \
-  "cd ~/orchestrator && printf 'WORKER1_IP=$W1_PRIV\nWORKER2_IP=$W2_PRIV\n' > .env && docker compose up -d --build"
+  "cd ~ && printf 'WORKER1_IP=$W1_PRIV\nWORKER2_IP=$W2_PRIV\n' > .env && docker compose up -d --build orchestrator"
 
 # 6. Wait until both workers answer /health (checked from the orchestrator, port 5000 is private)
 until ssh $SSH_OPTS ubuntu@"$ORCH_PUB" \
