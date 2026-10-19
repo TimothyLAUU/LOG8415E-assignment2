@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY worker.py .
 
-RUN pip install --no-cache-dir flask
+RUN pip install --no-cache-dir flask transformers torch
 
 EXPOSE 5000
 
