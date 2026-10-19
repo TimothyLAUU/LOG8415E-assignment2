@@ -10,3 +10,5 @@ responses.json
 _env*
 __pycache__/
 .DS_Store
+.terraform/
+terraform/.terraform/providers/
