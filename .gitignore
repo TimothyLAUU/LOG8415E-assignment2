@@ -1,0 +1,12 @@
+keys/
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+deploy.log
+orchestrator_ip.txt
+responses.json
+.env
+_env*
+__pycache__/
+.DS_Store

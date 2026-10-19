@@ -1,0 +1,86 @@
+[
+  {
+    "queued": true,
+    "wait_in_queue_s": 6.187,
+    "worker": "worker2",
+    "worker_response": {
+      "input": "I love this course!",
+      "result": {
+        "label": "POSITIVE",
+        "score": 0.9999
+      },
+      "worker": "worker2"
+    },
+    "total_time_s": 9.38
+  },
+  {
+    "queued": true,
+    "wait_in_queue_s": 3.165,
+    "worker": "worker2",
+    "worker_response": {
+      "input": "This is terrible.",
+      "result": {
+        "label": "NEGATIVE",
+        "score": 0.9996
+      },
+      "worker": "worker2"
+    },
+    "total_time_s": 6.34
+  },
+  {
+    "queued": true,
+    "wait_in_queue_s": 6.154,
+    "worker": "worker1",
+    "worker_response": {
+      "input": "What a wonderful day",
+      "result": {
+        "label": "POSITIVE",
+        "score": 0.9999
+      },
+      "worker": "worker1"
+    },
+    "total_time_s": 9.38
+  },
+  {
+    "queued": false,
+    "wait_in_queue_s": 0.002,
+    "worker": "worker1",
+    "worker_response": {
+      "input": "I hate waiting",
+      "result": {
+        "label": "NEGATIVE",
+        "score": 0.9945
+      },
+      "worker": "worker1"
+    },
+    "total_time_s": 3.27
+  },
+  {
+    "queued": true,
+    "wait_in_queue_s": 3.137,
+    "worker": "worker1",
+    "worker_response": {
+      "input": "Cloud computing is fun",
+      "result": {
+        "label": "POSITIVE",
+        "score": 0.9998
+      },
+      "worker": "worker1"
+    },
+    "total_time_s": 6.34
+  },
+  {
+    "queued": false,
+    "wait_in_queue_s": 0.004,
+    "worker": "worker2",
+    "worker_response": {
+      "input": "The demo failed again",
+      "result": {
+        "label": "NEGATIVE",
+        "score": 0.9998
+      },
+      "worker": "worker2"
+    },
+    "total_time_s": 3.28
+  }
+]
