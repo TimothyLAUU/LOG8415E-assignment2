@@ -1,5 +1,6 @@
 
 import os
+import time
 
 from flask import Flask, jsonify, request
 from transformers import pipeline

@@ -1,17 +1,19 @@
 services:
   worker1:
     build: ./worker
+    image: assignment2-worker
     container_name: worker1
     environment:
-      - WORKER_NAME=worker1
+      WORKER_NAME: worker1
     ports:
       - "${WORKER1_PORT:-5001}:5000"
 
   worker2:
     build: ./worker
+    image: assignment2-worker
     container_name: worker2
     environment:
-      - WORKER_NAME=worker2
+      WORKER_NAME: worker2
     ports:
       - "${WORKER2_PORT:-5002}:5000"
 
