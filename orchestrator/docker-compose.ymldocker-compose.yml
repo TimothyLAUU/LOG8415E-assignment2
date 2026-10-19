@@ -1,0 +1,8 @@
+services:
+  orchestrator:
+    build: .
+    container_name: orchestrator
+    ports:
+      - "80:80"
+    env_file: .env          # WORKER1_IP / WORKER2_IP, written by deploy.sh
+    restart: unless-stopped
